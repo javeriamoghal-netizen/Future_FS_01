@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Javeria | Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Javeria - Full Stack Developer">
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #d9c6ff, #cbb4ff, #e7d9ff);
+      color: #333;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 50px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #444;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .hero span {
+      color: #5a4fcf;
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #6a5acd, #ff6ec4);
+      color: white;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    /* Resume */
+    .resume-box {
+      background: white;
+      width: 60%;
+      margin: auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Skills & Projects */
+    .skills, .projects {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      width: 220px;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Contact */
+    input, textarea {
+      width: 60%;
+      margin: 10px;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Javeria</h2>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#resume">Resume</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Hello, I'm <span>Javeria</span></h1>
+  <p>Full Stack Web Development Intern</p>
+  <a href="#projects" class="btn">View My Work</a>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I am a passionate web developer building modern and responsive websites as part of my internship.</p>
+</section>
+
+<section id="resume">
+  <h2>Resume</h2>
+  <div class="resume-box">
+    <p><strong>🎓 Education:</strong> Bachelor's in Computer Science</p>
+    <p><strong>💻 Skills:</strong> HTML, CSS, JavaScript, Python</p>
+    <a href="resume.pdf" download class="btn">⬇ Download CV</a>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="card">HTML</div>
+    <div class="card">CSS</div>
+    <div class="card">JavaScript</div>
+    <div class="card">Python</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Portfolio Website</h3>
+      <p>My personal portfolio project</p>
+    </div>
+    <div class="card">
+      <h3>Mini CRM</h3>
+      <p>Client management system</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <br>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+
+</section>
+
+<footer>
+  <p>© 2026 Javeria | Portfolio</p>
+</footer>
+
+<script>
+(function(){
+  emailjs.init("MczIXTmKL38nOL5kb");
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  emailjs.sendForm("service_toamydf","template_l64i4lk", this)
+    .then(function() {
+      alert("Message Sent Successfully!");
+    })
+    .catch(function(error) {
+      console.log(error);
+      alert("Error: " + error.text);
+    });
+});
+</script>
+
+</body>
+</html>
